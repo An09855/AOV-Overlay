@@ -247,3 +247,22 @@ export const BanSymbol = styled.div`
     height: 100% !important;
     width: 100%;
 `
+
+export const ProgressBarContainer = styled.div`
+  top : 126px;
+  width: 1920px;
+  height: 8px;
+  background: rgba(255,255,255,0.15);
+  overflow: hidden;
+  position: relative;
+`;
+
+export const ProgressBarInner = styled.div`
+  height: 100%;
+  background: linear-gradient(90deg, #FFFFFF, #FFFFFF);
+  transition: width 1s linear;
+  width: ${({percent}) => percent}%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+`;

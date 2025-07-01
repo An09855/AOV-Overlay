@@ -16,6 +16,8 @@ import {
   PicksContainer,
   BlueBansContainer,
   RedBansContainer,
+  ProgressBarContainer,
+  ProgressBarInner
 } from './Index.elements'
 
 
@@ -45,6 +47,40 @@ const TimerComponent = React.memo(({currentSlot, startTimer}) => {
     return (<Timer id={`timer`}>{`${seconds}`}</Timer>);
   } else {
     return (<Timer id={`timer`}>{`00`}</Timer>);
+  }
+});
+
+const ProgressBarComponent = React.memo(({currentSlot, startTimer}) => {
+  const [seconds, setSeconds] = useState(60);
+
+  useEffect(() => {
+    if (!startTimer) return;
+    if (seconds <= 0) return;
+    const timer = setInterval(() => {
+      setSeconds(prev => prev - 1);
+    }, 1000);
+    return () => clearInterval(timer);
+  }, [seconds, startTimer]);
+
+  useEffect(() => {
+    setSeconds(60);
+  }, [currentSlot, startTimer]);
+
+  // Thanh sẽ thu lại từ 100% về 0%
+  const percent = (seconds / 60) * 100;
+
+  if ((currentSlot >= 0 && currentSlot <= 20) && startTimer) {
+    return (
+      <ProgressBarContainer>
+        <ProgressBarInner percent={percent} />
+      </ProgressBarContainer>
+    );
+  } else {
+    return (
+      <ProgressBarContainer>
+        <ProgressBarInner percent={0} />
+      </ProgressBarContainer>
+    );
   }
 });
 
@@ -198,9 +234,7 @@ const Index = ({ socket }) => {
           </Blue>
 
           <GameInfo>
-            {/* <TimerContainer>
-              <TimerComponent currentSlot={currentSlot} startTimer={startTimer}/>
-            </TimerContainer> */}
+            <ProgressBarComponent currentSlot={currentSlot} startTimer={startTimer} />
             <Round id={"phase_round"}>{barInfo.phaseRound}</Round>
             <Game id={"phase_game"}>{barInfo.phaseGame}</Game>
           </GameInfo>

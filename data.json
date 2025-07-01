@@ -4,7 +4,7 @@
     "blue": [
       {
         "id": 4,
-        "champion": "BoltBaron"
+        "champion": ""
       },
       {
         "id": 7,
@@ -50,11 +50,11 @@
     "blue": [
       {
         "id": 0,
-        "champion": "Helen"
+        "champion": ""
       },
       {
         "id": 2,
-        "champion": "Ignis"
+        "champion": ""
       },
       {
         "id": 11,
@@ -68,11 +68,11 @@
     "red": [
       {
         "id": 1,
-        "champion": "Iggy"
+        "champion": ""
       },
       {
         "id": 3,
-        "champion": "Ilumia"
+        "champion": ""
       },
       {
         "id": 10,
@@ -85,16 +85,16 @@
     ]
   },
   "barInfo": {
-    "blueTeamInitials": "FPT",
-    "blueTeamName": "FPT Flash",
-    "blueTeamScore": "0",
-    "redTeamInitials": "SGP ",
-    "redTeamName": "Saigon Phantom ",
-    "redTeamScore": "0",
-    "phaseRound": "VÒNG CHUNG KẾT",
-    "phaseGame": "Match 1 | Game 1"
+    "blueTeamInitials": "",
+    "blueTeamName": "",
+    "blueTeamScore": "",
+    "redTeamInitials": "",
+    "redTeamName": "",
+    "redTeamScore": "",
+    "phaseRound": "",
+    "phaseGame": ""
   },
-  "currentSlot": 5,
+  "currentSlot": 0,
   "playerIGNs": [
     {
       "id": 1,
