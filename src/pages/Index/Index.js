@@ -148,77 +148,107 @@ const Index = ({ socket }) => {
       setStartTimer(true);
     });
 
+    socket.on("serverData", (data) => {
+      if (data.barInfo) setBarInfo(data.barInfo);
+      if (Array.isArray(data.playerIGNs)) setPlayerIGNs(data.playerIGNs);
+      if (data.picks) setCurrentPicks(data.picks);
+      if (data.bans) setCurrentBans(data.bans);
+      if (typeof data.currentSlot === "number") setCurrentSlot(data.currentSlot);
+    });
+
     socket.on("receiveUpdatedPicks", (newPicks) => {
       setCurrentPicks(newPicks);
     });
-  }, []);
+
+    socket.on("receiveUpdatedBans", (newBans) => {
+      setCurrentBans(newBans);
+    });
+
+    return () => {
+      socket.off("serverData");
+      socket.off("receiveUpdatedPicks");
+      socket.off("receiveUpdatedBans");
+      // ...off các sự kiện khác nếu cần...
+    };
+  }, [socket]);
 
   return (
-    <Container>
-      <BarContainer>
-        <Blue>
-          <TeamInfoContainer>
-            <TeamInitials id="blue_initials">
-              {barInfo.blueTeamInitials}
-            </TeamInitials>
-            <TeamName id="blue_name">
-              {barInfo.blueTeamName}
-            </TeamName>
-          </TeamInfoContainer>
-          <Score>{barInfo.blueTeamScore}</Score>
-        </Blue>
+    <div
+      style={{
+        minHeight: "100vh",
+        minWidth: "100vw",
+        backgroundImage: "url('/Background.png')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
+      <Container>
+        <BarContainer>
+          <Blue>
+            <TeamInfoContainer>
+              <TeamInitials id="blue_initials">
+                {barInfo.blueTeamInitials}
+              </TeamInitials>
+              <TeamName id="blue_name">
+                {barInfo.blueTeamName}
+              </TeamName>
+            </TeamInfoContainer>
+            <Score>{barInfo.blueTeamScore}</Score>
+          </Blue>
 
-        <GameInfo>
-          <TimerContainer>
+          <GameInfo>
+            {/* <TimerContainer>
               <TimerComponent currentSlot={currentSlot} startTimer={startTimer}/>
-            </TimerContainer>
-          <Round id={"phase_round"}>{barInfo.phaseRound}</Round>
-          <Game id={"phase_game"}>{barInfo.phaseGame}</Game>
-        </GameInfo>
+            </TimerContainer> */}
+            <Round id={"phase_round"}>{barInfo.phaseRound}</Round>
+            <Game id={"phase_game"}>{barInfo.phaseGame}</Game>
+          </GameInfo>
 
-        <Red>
-          <TeamInfoContainer>
-            <TeamInitials id="red_initials">
-              {barInfo.redTeamInitials}
-            </TeamInitials>
-            <TeamName id="red_name">
-              {barInfo.redTeamName}
-            </TeamName>
-          </TeamInfoContainer>
-          <Score>{barInfo.redTeamScore}</Score>
-        </Red>
-      </BarContainer>
+          <Red>
+            <TeamInfoContainer>
+              <TeamInitials id="red_initials">
+                {barInfo.redTeamInitials}
+              </TeamInitials>
+              <TeamName id="red_name">
+                {barInfo.redTeamName}
+              </TeamName>
+            </TeamInfoContainer>
+            <Score>{barInfo.redTeamScore}</Score>
+          </Red>
+        </BarContainer>
 
-      <PicksContainer id="picks_blue" team="blue">
-        {currentPicks.blue.map((pick, idx) => {
-          return (
-            <PickComponent  team={"blue"} idx={idx} slot={pick.id} key={pick.id} champion={pick.champion} playerIGN={playerIGNs[idx].ign} currentSlot={currentSlot}/>
-          )
-        })}
-      </PicksContainer>
-      <PicksContainer id="picks_red" team="red">
-        {currentPicks.red.map((pick, idx) => {
-          return (
-            <PickComponent  team={"red"} idx={idx} slot={pick.id} key={pick.id} champion={pick.champion} playerIGN={playerIGNs[idx+5].ign} currentSlot={currentSlot}/>
-          )
-        })}
-      </PicksContainer>
+        <PicksContainer id="picks_blue" team="blue">
+          {currentPicks.blue.map((pick, idx) => {
+            return (
+              <PickComponent  team={"blue"} idx={idx} slot={pick.id} key={pick.id} champion={pick.champion} playerIGN={playerIGNs[idx].ign} currentSlot={currentSlot}/>
+            )
+          })}
+        </PicksContainer>
+        <PicksContainer id="picks_red" team="red">
+          {currentPicks.red.map((pick, idx) => {
+            return (
+              <PickComponent  team={"red"} idx={idx} slot={pick.id} key={pick.id} champion={pick.champion} playerIGN={playerIGNs[idx+5].ign} currentSlot={currentSlot}/>
+            )
+          })}
+        </PicksContainer>
 
-      <BlueBansContainer id="bans_blue">
-        {currentBans.blue.map((ban, idx) => {
-          return (
-            <BanComponent team={"blue"} idx={idx} slot={ban.id} key={ban.id} champion={ban.champion} currentSlot={currentSlot}/>
-          )
-        })}
-      </BlueBansContainer>
-      <RedBansContainer className={"bans red"} id="bans_red">
-        {currentBans.red.map((ban, idx) => {
-          return (
-            <BanComponent team={"red"} idx={idx} slot={ban.id} key={ban.id} champion={ban.champion} currentSlot={currentSlot}/>
-          )
-        })}
-      </RedBansContainer>
-    </Container>
+        <BlueBansContainer id="bans_blue">
+          {currentBans.blue.map((ban, idx) => {
+            return (
+              <BanComponent team={"blue"} idx={idx} slot={ban.id} key={ban.id} champion={ban.champion} currentSlot={currentSlot}/>
+            )
+          })}
+        </BlueBansContainer>
+        <RedBansContainer className={"bans red"} id="bans_red">
+          {currentBans.red.map((ban, idx) => {
+            return (
+              <BanComponent team={"red"} idx={idx} slot={ban.id} key={ban.id} champion={ban.champion} currentSlot={currentSlot}/>
+            )
+          })}
+        </RedBansContainer>
+      </Container>
+    </div>
   );
 };
 

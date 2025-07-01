@@ -1,9 +1,10 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import openSocket from "socket.io-client";
 
 import Index from "./pages/Index/Index";
 import Admin from "./pages/Admin/Admin";
+import Afterpicks from "./pages/Afterpicks/Afterpicks";
 
 import FontStyles from './fonts/fonts';
 
@@ -15,10 +16,11 @@ function App() {
   return (
     <Router>
       <FontStyles />
-      <Switch>
-        <Route exact path="/" render={() => <Index socket={socket} />} />
-        <Route path="/admin" render={() => <Admin socket={socket} />} />
-      </Switch>
+      <Routes>
+        <Route exact path="/" element={<Index socket={socket} />} />
+        <Route path="/admin" element={<Admin socket={socket} />} />
+        <Route path="/Afterpicks" element={<Afterpicks socket={socket} />} />
+      </Routes>
     </Router>
   );
 }

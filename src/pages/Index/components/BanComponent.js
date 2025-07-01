@@ -2,33 +2,12 @@ import styled from "styled-components";
 
 export const Ban = styled.div`
     flex: 1;
-    max-height: 130px;
+    max-height: 90px;
     transition: 2s;
     overflow: hidden;
     box-sizing: border-box;
     height: inherit;
 
-    ${({team}) => team === "blue" ? (`
-        &:nth-child(n+2)::after {
-            content: "";
-            position: absolute;
-            height: 50%;
-            background: rgb(153, 153, 153);
-            top: 25%;
-            width: 1px;
-            z-index: 1;
-        }
-    `) : (`
-        &:nth-child(-n+4)::after {
-            content: "";
-            position: absolute;
-            height: 50%;
-            background: rgb(153, 153, 153);
-            top: 25%;
-            width: 1px;
-            z-index: 1;
-        }
-    `)}
 `;
 
 export const ChampionBanSplash = styled.div`
@@ -40,22 +19,22 @@ export const ChampionBanSplash = styled.div`
     ${({ blank }) => blank ?
     `
         background-size: 25%;
-        background-position: 50% 50% !important;
+        background-position: center !important;
         height: 100% !important;
         width: 100%;
 
         &:after {
             content:"";
-            border-top:1px solid rgb(255, 255, 255);
-            width: 50px;
+            border-top:1px solid rgb(9,12,13);
+            width: 40px;
             transform: rotate(45deg);
             transform-origin: -50% 55%;
         }
     `
     :
     `
-        background-size: 128px;
-        background-position: 50% 10% !important;
+        background-size: contain !important;
+        background-position: center !important;
         height: 100%;
         width: 100%;
     `}

@@ -1,0 +1,51 @@
+[
+  {
+    "timestamp": 1751244925044,
+    "picks": {
+      "blue": [
+        {
+          "id": 4,
+          "champion": "Yue"
+        },
+        {
+          "id": 7,
+          "champion": "Veres"
+        },
+        {
+          "id": 8,
+          "champion": "Wisp"
+        },
+        {
+          "id": 15,
+          "champion": "Wiro"
+        },
+        {
+          "id": 16,
+          "champion": "Yorn"
+        }
+      ],
+      "red": [
+        {
+          "id": 5,
+          "champion": "Violet"
+        },
+        {
+          "id": 6,
+          "champion": "Tulen"
+        },
+        {
+          "id": 9,
+          "champion": "WonderWoman"
+        },
+        {
+          "id": 14,
+          "champion": "Yena"
+        },
+        {
+          "id": 17,
+          "champion": "Zanis"
+        }
+      ]
+    }
+  }
+]

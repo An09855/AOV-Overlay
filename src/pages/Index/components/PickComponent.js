@@ -1,33 +1,53 @@
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 
-export const ChampionPickSplash = styled.div`
+export const PickSplashWrapper = styled.div`
     height: 100%;
     width: 100%;
+    transition: transform 0.7s cubic-bezier(.77,0,.18,1);
+    will-change: transform;
+    transform: ${({ entered, team }) =>
+        entered
+            ? "translateX(0)"
+            : team === "blue"
+                ? "translateX(-330px)"
+                : "translateX(330px)"};
+`;
 
-    transition: background-color 0.5s ease, opacity 0.75s;
-
+export const ChampionPickSplash = styled.div`
+    position: relative;
+    height: 100%;
+    width: 100%;
+    transition: box-shadow 0.5s, background-color 0.5s, opacity 0.75s;
     border-width: 0px;
-
-    ${({ blank }) => blank ? 
-    `
-        background-size: 15%;
-        background-position: 50% 50%;
-        background-repeat: no-repeat;
-    `
-    : 
-    `
-        background-size: 100%;
-        background-position: 20% 25%;
-    `}
+    overflow: hidden;
 
     ${({ active }) => active === true &&
-    `
+    `   
         animation: pick-shadow 3s infinite;
-        
         @keyframes pick-shadow {
-            50% {box-shadow: inset 0 -150px 100px -100px rgb(255, 255, 255);}
+            50% {box-shadow: 0 0 0 6px #fff, 0 0 40px 8px #fff;}
         }
     `}
+`;
+
+// Thêm styled cho nền động
+const SplashBG = styled.div`
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: ${({urlBG}) => `url(${urlBG})`};
+    background-size: ${({blank}) => blank ? "15%" : "100%"};
+    background-position: ${({blank}) => blank ? "50% 50%" : "20% 25%"};
+    background-repeat: no-repeat;
+    transition: transform 0.7s cubic-bezier(.77,0,.18,1);
+    will-change: transform;
+    z-index: 1;
+    transform: ${({ entered, team }) =>
+        entered
+            ? "translateX(0)"
+            : team === "blue"
+                ? "translateX(-330px)"
+                : "translateX(330px)"};
 `;
 
 export const ChampionName = styled.div`
@@ -100,17 +120,36 @@ export const Pick = styled.div`
 var roles = ["top", "jungle", "middle", "bottom", "utility"];
 
 const PickComponent = ({ phase, champion, playerIGN, currentSlot, team, idx, slot }) => {
+  const [entered, setEntered] = useState(false);
+
+  useEffect(() => {
+    if (champion !== "") {
+      setEntered(false);
+      // Delay để reset animation nếu pick lại
+      setTimeout(() => setEntered(true), 30);
+    } else {
+      setEntered(false);
+    }
+  }, [champion]);
+
   var urlBG = champion === "" ? require(`../../../images/role-${roles[idx]}.png`).default : require(`../../../images/cache/11.21.1/champion/${champion.replace(/[^A-Z0-9]/ig, "")}_skins.jpg`).default;
   return (
     <Pick team={team} id={`"pick_${team}_${idx}"`} key={slot} phase={phase}>
       <ChampionPickSplash
-        blank={champion === "" ? true : false}
-        active={slot === currentSlot ? true : false}
-        style={{ backgroundImage: `url(${urlBG})` }}
+        active={slot === currentSlot}
         id={`"pick_${team}_splash_${idx}"`}
-      />
-      <ChampionName id={`"pick_${team}_champ_${idx}"`}>{champion}</ChampionName>
-      <PlayerName className={"text-ign"} id={`"pick_${team}_ign_${idx}"`}>{playerIGN}</PlayerName>
+        team={team}
+      >
+        <SplashBG
+          urlBG={urlBG}
+          blank={champion === ""}
+          entered={champion !== "" && entered}
+          team={team}
+        />
+      </ChampionPickSplash>
+      <PlayerName className={"text-ign"} id={`"pick_${team}_ign_${idx}"`}>
+        {playerIGN}
+      </PlayerName>
     </Pick>
   );
 };

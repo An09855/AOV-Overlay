@@ -1,0 +1,140 @@
+{
+  "selectedChampion": "",
+  "picks": {
+    "blue": [
+      {
+        "id": 4,
+        "champion": "BoltBaron"
+      },
+      {
+        "id": 7,
+        "champion": ""
+      },
+      {
+        "id": 8,
+        "champion": ""
+      },
+      {
+        "id": 15,
+        "champion": ""
+      },
+      {
+        "id": 16,
+        "champion": ""
+      }
+    ],
+    "red": [
+      {
+        "id": 5,
+        "champion": ""
+      },
+      {
+        "id": 6,
+        "champion": ""
+      },
+      {
+        "id": 9,
+        "champion": ""
+      },
+      {
+        "id": 14,
+        "champion": ""
+      },
+      {
+        "id": 17,
+        "champion": ""
+      }
+    ]
+  },
+  "bans": {
+    "blue": [
+      {
+        "id": 0,
+        "champion": "Helen"
+      },
+      {
+        "id": 2,
+        "champion": "Ignis"
+      },
+      {
+        "id": 11,
+        "champion": ""
+      },
+      {
+        "id": 13,
+        "champion": ""
+      }
+    ],
+    "red": [
+      {
+        "id": 1,
+        "champion": "Iggy"
+      },
+      {
+        "id": 3,
+        "champion": "Ilumia"
+      },
+      {
+        "id": 10,
+        "champion": ""
+      },
+      {
+        "id": 12,
+        "champion": ""
+      }
+    ]
+  },
+  "barInfo": {
+    "blueTeamInitials": "FPT",
+    "blueTeamName": "FPT Flash",
+    "blueTeamScore": "0",
+    "redTeamInitials": "SGP ",
+    "redTeamName": "Saigon Phantom ",
+    "redTeamScore": "0",
+    "phaseRound": "VÒNG CHUNG KẾT",
+    "phaseGame": "Match 1 | Game 1"
+  },
+  "currentSlot": 5,
+  "playerIGNs": [
+    {
+      "id": 1,
+      "ign": ""
+    },
+    {
+      "id": 2,
+      "ign": ""
+    },
+    {
+      "id": 3,
+      "ign": ""
+    },
+    {
+      "id": 4,
+      "ign": ""
+    },
+    {
+      "id": 5,
+      "ign": ""
+    },
+    {
+      "id": 6,
+      "ign": ""
+    },
+    {
+      "id": 7,
+      "ign": ""
+    },
+    {
+      "id": 8,
+      "ign": ""
+    },
+    {
+      "id": 9,
+      "ign": ""
+    },
+    {
+      "id": 10,
+      "ign": ""
+    }
+  ]
+}

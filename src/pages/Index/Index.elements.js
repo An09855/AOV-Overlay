@@ -10,10 +10,8 @@ export const Container = styled.div`
 // bar infomation
 export const BarContainer = styled.div`
     display: flex;
-    flex-direction: row;
-    height: 150px;
+    height: 210px;
     width: 100%;
-    text-transform: uppercase;
 `;
 
 export const TeamInfoContainer = styled.div`
@@ -22,11 +20,11 @@ export const TeamInfoContainer = styled.div`
     flex-direction: column;
     justify-content: center;
     align-content: center;
-    color: #D4AF37;
+    color: #FFFFFF;
 `;
 
 export const TeamInitials = styled.div`
-    font-family: Akira Expanded;
+    font-family: AkiraExpanded;
     font-size: 65px;
     line-height: 65px;
     text-transform: uppercase;
@@ -34,16 +32,22 @@ export const TeamInitials = styled.div`
 
 export const TeamName = styled.div`
     font: 600 12px "Montserrat", sans-serif;
-    letter-spacing: 14px;
+    letter-spacing: 10px;
     text-transform: uppercase;
 `;
 
 export const Game = styled.div`
-    font-size: 14px;
+    font-size: 24px;
+    height: 55px;
+    text-align: center;
     margin-bottom: 5px;
+    margin-top: 64px; // Tăng khoảng cách phía trên Game (phase_game)
 `;
 export const Round = styled.div`
-    font-size: 20px;
+    width: 100%; // Đảm bảo chiếm toàn bộ chiều ngang
+    min-width: 400px; // Đặt chiều rộng tối thiểu lớn hơn 192px
+    text-align: center;
+    font-size: 40px;
 `;
 
 export const Timer = styled.div`
@@ -64,22 +68,23 @@ export const GameInfo = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: flex-end;
-    background-color: #BBA151;
 `;
 
 export const PhaseInfoText = styled.div``;
 
 export const Score = styled.div`
-    color: #D4AF37;
+    height: 100px;
+    width: 200px;
+    color: #FFFFFF;
     font-size: 100px;
-    font-weight: 500;
-    font: 500 100px 'Montserrat', sans-serif;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    letter-spacing: 0;
 `;
 
 export const Blue = styled.div`
     width: 45%;
     height: inherit;
-    background: linear-gradient(90deg, rgba(9,12,13,1) 0%, rgba(18,23,26,1) 100%);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -97,7 +102,6 @@ export const Red = styled.div`
     width: 45%;
     height: inherit;
     direction: rtl;
-    background: linear-gradient(-90deg, rgba(9,12,13,1) 0%, rgba(18,23,26,1) 100%);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -170,7 +174,7 @@ export const ChampionPickSplash = styled.div`
 
     ${({ active }) => active === true &&
     `
-        animation: pick-shadow 3s infinite;
+        animation: pick-shadow 5s infinite;
         
         @keyframes pick-shadow {
             50% {box-shadow: inset 0 -150px 100px -100px rgb(219, 200, 93);}
@@ -188,25 +192,18 @@ export const ChampionName = styled.div`
 
 export const PlayerName = styled.div`
     color: white;
-    font-weight: 700;
-    font-type: italic;
-    font-size: 30px;
-    position: absolute;
-    left: 10px;
-    bottom: 0;
 `;
 
 export const PicksContainer = styled.div`
     position: absolute;
-    top: 150px;
+    top: 218px;
     ${({team}) => team === "blue" ? `left: 0;` : `right: 0;`}
-    width: 500px;
-    height: 800px;
+    width: 321px;
+    height: 704px;
 
     display: grid;
-    grid-row-gap: 0px;
+    grid-row-gap: 17.3px;
 
-    background-color: rgba(18,23,26,.9);
 
     ${({team}) => team === 'red' && (`
         ${Pick}:after {
@@ -218,27 +215,28 @@ export const PicksContainer = styled.div`
 export const BlueBansContainer = styled.div`
     overflow: hidden;
     position: absolute;
-    top: 950px;
-    width: 500px;
-    height: 130px;
+    top: 973px;
+    width: 355px;
+    height: 79px;
     display: flex;
+    gap: 13px;
     align-items: center;
     justify-content: space-around;
-    background-color:rgba(9,12,13, .9);
+    left: 91px;
 `;
 
 export const RedBansContainer = styled.div`
     overflow: hidden;
     position: absolute;
-    top: 950px;
-    width: 500px;
-    height: 130px;
+    top: 973px;
+    width: 354px;
+    height: 79px;
     display: flex;
+    gap: 13px;
     align-items: center;
     justify-content: space-around;
-    right: 0;
+    right: 91px;
     flex-direction: row-reverse;
-    background-color:rgba(9,12,13, .9);
 `;
 
 export const BanSymbol = styled.div`

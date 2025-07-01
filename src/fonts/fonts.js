@@ -13,7 +13,7 @@ export default createGlobalStyle`
     }
 
     @font-face {
-        font-family: 'Akira Expanded';
+        font-family: 'AkiraExpanded';
         src local('AkiraExpanded'),
         url(${AkiraExpanded}) format('opentype');
     }
@@ -26,7 +26,7 @@ export default createGlobalStyle`
     
     @font-face {
         font-family: 'Vegan Abattoir';
-        src: local('VeganAbattoir'),
-        url(${VeganAbattoir}) format('opentype');
+        src: local('AkiraExpanded'),
+        url(${AkiraExpanded}) format('opentype');
     }
 `;

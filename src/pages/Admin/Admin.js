@@ -31,6 +31,7 @@ var order = ['blue', 'red', 'blue', 'red', 'blue', 'red', 'red', 'blue', 'blue',
 const Admin = ({ socket }) => {
   const [status, setStatus] = useState("idle");
   const [champions, setChampions] = useState([]);
+  const [allChampions, setAllChampions] = useState([]); // Thêm state này
   const [filter, setFilter] = useState("");
 
   const [barInfo, setBarInfo] = useState({
@@ -102,6 +103,7 @@ const Admin = ({ socket }) => {
       const response = await require("../../champions.json");
       const data = await response.champions;
       setChampions(data);
+      setAllChampions(data); // Lưu lại danh sách gốc
       setStatus("fetched");
     };
     fetchData();
@@ -116,6 +118,9 @@ const Admin = ({ socket }) => {
   useEffect(() => {
     socket.emit("sendCurrentSlot", currentSlot);
   }, [currentSlot]);
+  useEffect(() => {
+    socket.emit("sendUpdatedBans", currentBans);
+  }, [currentBans]);
 
   // Send current selected champion
   useEffect(() => {
@@ -130,6 +135,30 @@ const Admin = ({ socket }) => {
   useEffect(() => {
     socket.emit("sendPlayerIGNs", playerIGNs);
   }, [playerIGNs]);
+
+  useEffect(() => {
+    socket.on("serverData", (data) => {
+      if (data.barInfo) setBarInfo(data.barInfo);
+      if (Array.isArray(data.playerIGNs)) {
+        let igns = data.playerIGNs;
+        if (igns.length < 10) {
+          for (let i = igns.length; i < 10; i++) {
+            igns.push({ id: i + 1, ign: "" });
+          }
+        }
+        setPlayerIGNs(igns);
+      }
+      if (data.picks) setCurrentPicks(data.picks);
+      if (data.bans) setCurrentBans(data.bans);
+      if (typeof data.currentSlot === "number") setCurrentSlot(data.currentSlot);
+      if (typeof data.selectedChampion !== "undefined") setSelectedChampion(data.selectedChampion);
+
+      // Reset lại danh sách champions về mặc định khi xóa
+      setChampions(allChampions); // Reset lại danh sách champion về đầy đủ
+    });
+    // Cleanup khi component unmount
+    return () => socket.off("serverData");
+  }, [socket, allChampions]);
 
   const handleStartTimer = () => {
     setStartTimer(true);
@@ -160,6 +189,8 @@ const Admin = ({ socket }) => {
       } else {
         setCurrentSlot(currentSlot + 1);
         removeChampion(selectedChampion);
+
+        socket.emit("sendUpdatedPicks", currentPicks);
       }
       setSelectedChampion("");
     } else {
@@ -369,6 +400,30 @@ const Admin = ({ socket }) => {
               <ButtonRow>
                 <Button onClick={handleLockIn}>LOCK IN</Button>
                 <Button onClick={handleStartTimer} disabled={startTimer}>START GAME</Button>
+                <Button onClick={() => {
+                  socket.emit("saveAfterpicks", currentPicks);
+                  alert("Đã lưu picks vào lịch sử!");
+                }}>SAVE</Button>
+                <Button
+                  onClick={() => {
+                    if (window.confirm("Bạn có chắc chắn muốn xóa toàn bộ dữ liệu?")) {
+                      socket.emit("deleteAllData");
+                    }
+                  }}
+                  style={{ background: "#c0392b", color: "#fff" }}
+                >
+                  DELETE
+                </Button>
+                <Button
+                  onClick={() => {
+                    if (window.confirm("Bạn có chắc chắn muốn xóa toàn bộ lịch sử Afterpicks?")) {
+                      socket.emit("deleteAfterpicks");
+                    }
+                  }}
+                  style={{ background: "#c0392b", color: "#fff" }}
+                >
+                  DELETE AFTER
+                </Button>
               </ButtonRow>
             </SelectionContainer>
 
