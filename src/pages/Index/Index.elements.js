@@ -10,7 +10,7 @@ export const Container = styled.div`
 // bar infomation
 export const BarContainer = styled.div`
     display: flex;
-    height: 210px;
+    height: 214px;
     width: 100%;
 `;
 
@@ -24,7 +24,7 @@ export const TeamInfoContainer = styled.div`
 `;
 
 export const TeamInitials = styled.div`
-    font-family: AkiraExpanded;
+    font-family: 'AkiraExpanded', sans-serif;
     font-size: 65px;
     line-height: 65px;
     text-transform: uppercase;
@@ -63,7 +63,7 @@ export const TimerContainer = styled.div`
 `
 
 export const GameInfo = styled.div`
-    width: 10%;
+    width: 11%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -229,13 +229,13 @@ export const RedBansContainer = styled.div`
     overflow: hidden;
     position: absolute;
     top: 973px;
-    width: 354px;
+    width: 355px;
     height: 79px;
     display: flex;
     gap: 13px;
     align-items: center;
     justify-content: space-around;
-    right: 91px;
+    right: 90px;
     flex-direction: row-reverse;
 `;
 
@@ -249,7 +249,7 @@ export const BanSymbol = styled.div`
 `
 
 export const ProgressBarContainer = styled.div`
-  top : 126px;
+  top : 171px;
   width: 1920px;
   height: 8px;
   background: rgba(255,255,255,0.15);

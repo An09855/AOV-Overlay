@@ -1,7 +1,13 @@
+const express = require("express");
+const cors = require("cors");
+const app = express();
 const io = require("socket.io")();
 const fs = require("fs");
 const DATA_FILE = "data.json";
 const HISTORY_FILE = "afterpicks.json";
+
+app.use(cors());
+app.use(express.static("."));
 
 // Hàm đọc dữ liệu từ file
 function loadData() {
@@ -114,6 +120,7 @@ io.on("connection", (socket) => {
     serverData.currentSlot = 0; // Đặt lại currentSlot về 0
     saveData(serverData);
     io.sockets.emit("serverData", serverData);
+    io.sockets.emit("resetTimer");
   });
 
   socket.on("saveAfterpicks", (picks) => {
@@ -136,6 +143,16 @@ io.on("connection", (socket) => {
   });
 });
 
-const port = 8000;
-io.listen(port);
-console.log("listening on port ", port);
+app.get("/api/barinfo", (req, res) => {
+  try {
+    const data = JSON.parse(fs.readFileSync(DATA_FILE, "utf8"));
+    res.json(data.barInfo || {});
+  } catch (e) {
+    res.status(500).json({ error: "Cannot read barInfo" });
+  }
+});
+
+const server = app.listen(8000, () => {
+  console.log("HTTP server listening on port 8000");
+});
+io.attach(server);

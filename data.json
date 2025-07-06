@@ -4,45 +4,45 @@
     "blue": [
       {
         "id": 4,
-        "champion": ""
+        "champion": "Allain"
       },
       {
         "id": 7,
-        "champion": ""
+        "champion": "Thane"
       },
       {
         "id": 8,
-        "champion": ""
+        "champion": "TheFlash"
       },
       {
         "id": 15,
-        "champion": ""
+        "champion": "Violet"
       },
       {
         "id": 16,
-        "champion": ""
+        "champion": "Volkath"
       }
     ],
     "red": [
       {
         "id": 5,
-        "champion": ""
+        "champion": "Teeri"
       },
       {
         "id": 6,
-        "champion": ""
+        "champion": "TelAnnas"
       },
       {
         "id": 9,
-        "champion": ""
+        "champion": "Thorne"
       },
       {
         "id": 14,
-        "champion": ""
+        "champion": "Veres"
       },
       {
         "id": 17,
-        "champion": ""
+        "champion": "Wiro"
       }
     ]
   },
@@ -50,51 +50,51 @@
     "blue": [
       {
         "id": 0,
-        "champion": ""
+        "champion": "Ilumia"
       },
       {
         "id": 2,
-        "champion": ""
+        "champion": "Keera"
       },
       {
         "id": 11,
-        "champion": ""
+        "champion": "Tulen"
       },
       {
         "id": 13,
-        "champion": ""
+        "champion": "Veera"
       }
     ],
     "red": [
       {
         "id": 1,
-        "champion": ""
+        "champion": "Ignis"
       },
       {
         "id": 3,
-        "champion": ""
+        "champion": "Ishar"
       },
       {
         "id": 10,
-        "champion": ""
+        "champion": "Toro"
       },
       {
         "id": 12,
-        "champion": ""
+        "champion": "Valhein"
       }
     ]
   },
   "barInfo": {
-    "blueTeamInitials": "",
-    "blueTeamName": "",
-    "blueTeamScore": "",
-    "redTeamInitials": "",
-    "redTeamName": "",
-    "redTeamScore": "",
-    "phaseRound": "",
-    "phaseGame": ""
+    "blueTeamInitials": "FPT",
+    "blueTeamName": "FPT Flash",
+    "blueTeamScore": "0",
+    "redTeamInitials": "SGP",
+    "redTeamName": "Saigon Phantom",
+    "redTeamScore": "0",
+    "phaseRound": "VÒNG CHUNG KẾT",
+    "phaseGame": "Match 1 | Game 1 "
   },
-  "currentSlot": 0,
+  "currentSlot": 18,
   "playerIGNs": [
     {
       "id": 1,

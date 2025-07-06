@@ -1,49 +1,98 @@
 [
   {
-    "timestamp": 1751244925044,
+    "timestamp": 1751368400804,
     "picks": {
       "blue": [
         {
           "id": 4,
-          "champion": "Yue"
+          "champion": "Maloch"
         },
         {
           "id": 7,
-          "champion": "Veres"
+          "champion": "Max"
         },
         {
           "id": 8,
-          "champion": "Wisp"
+          "champion": "Mganga"
         },
         {
           "id": 15,
-          "champion": "Wiro"
+          "champion": "Omega"
         },
         {
           "id": 16,
-          "champion": "Yorn"
+          "champion": "Omen"
         }
       ],
       "red": [
         {
           "id": 5,
-          "champion": "Violet"
+          "champion": "Lorion"
         },
         {
           "id": 6,
-          "champion": "Tulen"
+          "champion": "Marja"
         },
         {
           "id": 9,
-          "champion": "WonderWoman"
+          "champion": "Mina"
         },
         {
           "id": 14,
-          "champion": "Yena"
+          "champion": "Natalya"
         },
         {
           "id": 17,
-          "champion": "Zanis"
+          "champion": "Ormarr"
+        }
+      ]
+    }
+  },
+  {
+    "timestamp": 1751699635926,
+    "picks": {
+      "blue": [
+        {
+          "id": 4,
+          "champion": "Allain"
+        },
+        {
+          "id": 7,
+          "champion": "AzzenKa"
+        },
+        {
+          "id": 8,
+          "champion": "Grakk"
+        },
+        {
+          "id": 15,
+          "champion": "DArcy"
+        },
+        {
+          "id": 16,
+          "champion": "Mganga"
+        }
+      ],
+      "red": [
+        {
+          "id": 5,
+          "champion": "Valhein"
+        },
+        {
+          "id": 6,
+          "champion": "Natalya"
+        },
+        {
+          "id": 9,
+          "champion": "Dolia"
+        },
+        {
+          "id": 14,
+          "champion": "Heino"
+        },
+        {
+          "id": 17,
+          "champion": "Enzo"
         }
       ]
     }

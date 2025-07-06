@@ -144,6 +144,17 @@ const Index = ({ socket }) => {
   const [startTimer, setStartTimer] = useState(false);
 
   useEffect(() => {
+    if (!socket) return;
+    const handleResetTimer = () => {
+      setStartTimer(false); // Ẩn thanh thời gian
+    };
+    socket.on("resetTimer", handleResetTimer);
+    return () => {
+      socket.off("resetTimer", handleResetTimer);
+    };
+  }, [socket]);
+
+  useEffect(() => {
     socket.on("receiveBarInfo", (barInfo) => {
       setBarInfo(barInfo);
     });

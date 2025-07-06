@@ -5,6 +5,7 @@ import openSocket from "socket.io-client";
 import Index from "./pages/Index/Index";
 import Admin from "./pages/Admin/Admin";
 import Afterpicks from "./pages/Afterpicks/Afterpicks";
+import Score from "./pages/Score/Score";
 
 import FontStyles from './fonts/fonts';
 
@@ -20,6 +21,7 @@ function App() {
         <Route exact path="/" element={<Index socket={socket} />} />
         <Route path="/admin" element={<Admin socket={socket} />} />
         <Route path="/Afterpicks" element={<Afterpicks socket={socket} />} />
+        <Route path="/Score" element={<Score />} />
       </Routes>
     </Router>
   );

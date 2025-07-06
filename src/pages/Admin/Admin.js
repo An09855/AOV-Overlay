@@ -407,6 +407,7 @@ const Admin = ({ socket }) => {
                 <Button
                   onClick={() => {
                     if (window.confirm("Bạn có chắc chắn muốn xóa toàn bộ dữ liệu?")) {
+                      setStartTimer(false);
                       socket.emit("deleteAllData");
                     }
                   }}
