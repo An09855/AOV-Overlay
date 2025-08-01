@@ -4,45 +4,45 @@
     "blue": [
       {
         "id": 4,
-        "champion": "Allain"
+        "champion": ""
       },
       {
         "id": 7,
-        "champion": "Thane"
+        "champion": ""
       },
       {
         "id": 8,
-        "champion": "TheFlash"
+        "champion": ""
       },
       {
         "id": 15,
-        "champion": "Violet"
+        "champion": ""
       },
       {
         "id": 16,
-        "champion": "Volkath"
+        "champion": ""
       }
     ],
     "red": [
       {
         "id": 5,
-        "champion": "Teeri"
+        "champion": ""
       },
       {
         "id": 6,
-        "champion": "TelAnnas"
+        "champion": ""
       },
       {
         "id": 9,
-        "champion": "Thorne"
+        "champion": ""
       },
       {
         "id": 14,
-        "champion": "Veres"
+        "champion": ""
       },
       {
         "id": 17,
-        "champion": "Wiro"
+        "champion": ""
       }
     ]
   },
@@ -50,51 +50,51 @@
     "blue": [
       {
         "id": 0,
-        "champion": "Ilumia"
+        "champion": ""
       },
       {
         "id": 2,
-        "champion": "Keera"
+        "champion": ""
       },
       {
         "id": 11,
-        "champion": "Tulen"
+        "champion": ""
       },
       {
         "id": 13,
-        "champion": "Veera"
+        "champion": ""
       }
     ],
     "red": [
       {
         "id": 1,
-        "champion": "Ignis"
+        "champion": ""
       },
       {
         "id": 3,
-        "champion": "Ishar"
+        "champion": ""
       },
       {
         "id": 10,
-        "champion": "Toro"
+        "champion": ""
       },
       {
         "id": 12,
-        "champion": "Valhein"
+        "champion": ""
       }
     ]
   },
   "barInfo": {
-    "blueTeamInitials": "FPT",
-    "blueTeamName": "FPT Flash",
+    "blueTeamInitials": "",
+    "blueTeamName": "",
     "blueTeamScore": "0",
-    "redTeamInitials": "SGP",
-    "redTeamName": "Saigon Phantom",
+    "redTeamInitials": "",
+    "redTeamName": "",
     "redTeamScore": "0",
     "phaseRound": "VÒNG CHUNG KẾT",
-    "phaseGame": "Match 1 | Game 1 "
+    "phaseGame": "Match 1 | Game 1"
   },
-  "currentSlot": 18,
+  "currentSlot": 0,
   "playerIGNs": [
     {
       "id": 1,

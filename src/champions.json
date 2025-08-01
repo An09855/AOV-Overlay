@@ -41,6 +41,7 @@
        {"name": "Florentino", "role": "fighter"},
        {"name": "Gildur", "role": "tank support"},
        {"name": "Grakk", "role": "support tank"},
+       {"name": "Goverra", "role": "support tank"},
        {"name": "Hayate", "role": "marksman"},
        {"name": "Heino", "role": "marksman"},
        {"name": "Helen", "role": "support"},
