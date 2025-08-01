@@ -10,6 +10,8 @@ Go to the root directory of the project, then execute the following in 2 differe
 
 To control the react app, open both
 ### `localhost:<port>/`
+### `localhost:<port>/Afterpicks`
+### `localhost:<port>/Score`
 and
 ### `localhost:<port>/Admin`
 In the the same or different browsers.
